@@ -1,0 +1,50 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:a="http://richfaces.org/a4j"
+    template="layout/template.xhtml">
+
+<ui:define name="body">
+
+    <h:outputText value="No messages" rendered="#{showMessages.rowCount==0}"></h:outputText>
+    
+    <rich:panel>
+    	<f:facet name="header">Messages Manager XXX</f:facet>
+    	
+    	<h:dataTable var="msg" value="#{showMessages}" rendered="#{showMessages.rowCount>0}">    	  	
+    	<h:column>
+    		<f:facet name="header">Id</f:facet>
+    		<h:outputText value="#{msg.id}"></h:outputText>
+    	</h:column>
+    	<h:column>
+    		<f:facet name="header">Read</f:facet>
+    		<h:selectBooleanCheckbox value="#{msg.read}" disabled="true"></h:selectBooleanCheckbox>
+    	</h:column>
+    	<h:column>
+    		<f:facet name="header">Title</f:facet>
+    		<s:link value="#{msg.title}" action="#{messageManager.select}"/>
+    	</h:column>
+    	<h:column>	
+    		<f:facet name="header">Date/Time</f:facet>
+    		<h:outputText value="#{msg.datetime}">
+    			<s:convertDateTime type="both" dateStyle="medium" timeStyle="short"/>
+    		</h:outputText>
+    	</h:column>
+    	<h:column>
+    		<s:button value="Delete" action="#{messageManager.delete}"/>
+    	</h:column>
+    	</h:dataTable>
+    	
+    	<h3><h:outputText value="#{message.title}"/></h3>
+    	<div><h:outputText value="#{message.text}"/></div>
+    	
+    </rich:panel>
+
+</ui:define>
+
+</ui:composition>

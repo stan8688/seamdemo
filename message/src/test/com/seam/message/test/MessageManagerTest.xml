@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+
+<suite name="MessageManager Tests" verbose="2" parallel="false">
+   <test name="MessageManager Test">
+     <classes>
+       <class name="com.seam.message.test.MessageManagerTest"/>       
+     </classes>
+   </test>	
+</suite>

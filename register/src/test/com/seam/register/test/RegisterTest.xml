@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+
+<suite name="Register Tests" verbose="2" parallel="false">
+   <test name="Register Test">
+     <classes>
+       <class name="com.seam.register.test.RegisterTest"/>       
+     </classes>
+   </test>	
+</suite>
